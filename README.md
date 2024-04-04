@@ -1,5 +1,5 @@
 # tomhuibregtse.com
-This is my personal website. It is deployed to www.tomhuibregtse.com.
+This is my personal website. It is deployed to tomhuibregtse.com.
 
 ## TODOs
 - [X] [Setup Apache Web Server](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-debian-11)
