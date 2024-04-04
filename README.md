@@ -2,11 +2,12 @@
 This is my personal website. It is deployed to www.tomhuibregtse.com.
 
 ## TODOs
+- [X] [Setup Apache Web Server](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-debian-11)
+- [ ] Setup `mod_wsgi`
+- [ ] Add a deploy key
+- [ ] Clone the repository
+- [ ] Setup LetsEncrypt/Certbot automatic SSL certifications
 - [ ] Deploy to www.tomhuibregtse.com
-  - [ ] Setup Apache Web Server
-  - [ ] Setup `mod_wsgi`
-  - [ ] Add a deploy key
-  - [ ] Clone the repository
 - [ ] Setup automated deploys
   - [ ] Merging into `main` automatically deploys the website
   - [ ] Find a tool for this
