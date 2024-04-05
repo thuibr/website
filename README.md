@@ -2,20 +2,22 @@
 This is my personal website. It is deployed to tomhuibregtse.com.
 
 ## TODOs
-- [X] [Setup Apache Web Server](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-debian-11)
-- [ ] Setup `mod_wsgi`
-- [ ] Add a deploy key
-- [ ] Clone the repository
-- [ ] Setup LetsEncrypt/Certbot automatic SSL certifications
-- [ ] Deploy to www.tomhuibregtse.com
+
+### Deployment
+- [X] Deploy to fly.io
+- [ ] Point tomhuibregtse.com to fly.io
 - [ ] Setup automated deploys
   - [ ] Merging into `main` automatically deploys the website
   - [ ] Find a tool for this
+
+### CI/Security
 - [ ] Enable Dependabot updates
 - [ ] Enable security scan
 - [ ] Enable GitGuardian
 - [ ] Integrate Sentry
 - [ ] Disable the Admin page
+
+### Django
 - [ ] Top-level templates directory, or in proj/
 - [ ] django-environ
   - [ ] Example of local development in ".env.local"
