@@ -6,7 +6,7 @@ This is my personal website. It is deployed to tomhuibregtse.com.
 ### Deployment
 - [X] Deploy to fly.io
 - [ ] Fly volume for SQLite Database
-- [ ] Point tomhuibregtse.com to fly.io
+- [X] Point tomhuibregtse.com to fly.io
 - [ ] Setup automated deploys
   - [ ] Merging into `main` automatically deploys the website
   - [ ] Find a tool for this
