@@ -10,16 +10,21 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 import environ
 
-env = environ.Env(
-        DEBUG=(bool, False)
-)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+base = environ.Path(BASE_DIR)
+environ.Env.read_env(env_file=base('.env'))
+env = environ.Env(
+        DEBUG=(bool, False)
+)
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,7 +36,11 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tomhuibregtse.com']
+
+APP_NAME = os.environ.get("FLY_APP_NAME")
+if APP_NAME:
+    ALLOWED_HOSTS.append(f"{APP_NAME}.fly.dev")
 
 
 # Application definition
