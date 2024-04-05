@@ -4,3 +4,5 @@ django-environ
 selenium
 whitenoise
 pytest-django
+djlint
+black
