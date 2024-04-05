@@ -3,3 +3,4 @@ gunicorn
 django-environ
 selenium
 whitenoise
+pytest-django
