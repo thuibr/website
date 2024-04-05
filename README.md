@@ -6,6 +6,7 @@ This is my personal website. It is deployed to tomhuibregtse.com.
 ### Deployment
 - [X] Deploy to fly.io
 - [ ] Fly volume for SQLite Database
+- [ ] Fly MinIO backup https://fly.io/docs/app-guides/minio/
 - [X] Point tomhuibregtse.com to fly.io
 - [ ] Setup automated deploys
   - [ ] Merging into `main` automatically deploys the website
