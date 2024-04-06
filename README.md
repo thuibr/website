@@ -17,7 +17,7 @@ This is my personal website. It is deployed to tomhuibregtse.com.
 - [ ] Enable security scan
 - [ ] Enable GitGuardian
 - [ ] Integrate Sentry
-- [X] Disable the Admin page
+- [ ] Disable the Admin page
 - [ ] Precommit hook
 
 ### Django
