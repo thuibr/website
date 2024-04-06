@@ -6,3 +6,4 @@ whitenoise
 pytest-django
 djlint
 black
+django-sesame
