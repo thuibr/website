@@ -17,17 +17,19 @@ This is my personal website. It is deployed to tomhuibregtse.com.
 - [ ] Enable security scan
 - [ ] Enable GitGuardian
 - [ ] Integrate Sentry
-- [ ] Disable the Admin page
+- [X] Disable the Admin page
+- [ ] Precommit hook
 
 ### Django
-- [ ] Top-level templates directory, or in proj/
+- [X] Top-level templates directory, or in proj/
 - [ ] django-environ
   - [ ] Example of local development in ".env.local"
   - [ ] Example of production in ".env.prod"
-  - [ ] .env files are in .gitignore
-  - [ ] Contains SECRET_KEY
-  - [ ] Contains DEBUG
-- [ ] djlint
+  - [X] .env files are in .gitignore
+  - [X] Contains SECRET_KEY
+  - [X] Contains DEBUG
+- [X] djlint
+- [ ] black
 - [ ] django-sesame
 - [ ] Pico CSS
 - [ ] Homepage has link to blog and link to recipes
