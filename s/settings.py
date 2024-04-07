@@ -38,6 +38,9 @@ ALLOWED_HOSTS = ["tomhuibregtse.com"]
 APP_NAME = os.environ.get("FLY_APP_NAME")
 if APP_NAME:
     ALLOWED_HOSTS.append(f"{APP_NAME}.fly.dev")
+if DEBUG:
+    ALLOWED_HOSTS.append("localhost")
+    ALLOWED_HOSTS.append("127.0.0.1")
 
 
 # Application definition
@@ -49,8 +52,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
     # Local
     "recipes",
+    "core",
 ]
 
 MIDDLEWARE = [
@@ -115,6 +120,18 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Custom User model
+# https://docs.djangoproject.com/en/5.0/topics/auth/customizing/#substituting-a-custom-user-model
+AUTH_USER_MODEL = "core.User"
+
+# Install sesame as a backend
+# https://django-sesame.readthedocs.io/en/stable/index.html#getting-started
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "sesame.backends.ModelBackend",
+]
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -136,3 +153,12 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SESAME_MAX_AGE = 300
+
+LOGIN_REDIRECT_URL = "/admin/"
+
+# Email backend from env
+# https://django-sesame.readthedocs.io/en/stable/tutorial.html#email-the-magic-link
+EMAIL_BACKEND = env('EMAIL_BACKEND')
+

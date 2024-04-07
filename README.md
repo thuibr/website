@@ -34,3 +34,5 @@ This is my personal website. It is deployed to tomhuibregtse.com.
 - [ ] Pico CSS
 - [ ] Homepage has link to blog and link to recipes
 
+- [ ] Fix sesame documentation: `get_query_string()` in tutorial
+- [ ] Fix sesame documentation: make sure sesame is included as a backend in settings
