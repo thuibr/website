@@ -21,7 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 base = environ.Path(BASE_DIR)
 environ.Env.read_env(env_file=base(".env"))
-env = environ.Env(DEBUG=(bool, False))
+env = environ.Env(
+    DEBUG=(bool, False),
+    EMAIL_USE_TLS=(bool, False),
+    EMAIL_USE_SSL=(bool, False),
+)
 
 
 # Quick-start development settings - unsuitable for production
@@ -41,6 +45,8 @@ if APP_NAME:
 if DEBUG:
     ALLOWED_HOSTS.append("localhost")
     ALLOWED_HOSTS.append("127.0.0.1")
+
+CSRF_TRUSTED_ORIGINS = ["https://tomhuibregtse.com"]
 
 
 # Application definition
@@ -92,10 +98,14 @@ WSGI_APPLICATION = "s.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+DATABASE_PATH = env("DATABASE_PATH")
+if not DATABASE_PATH:
+    DATABASE_PATH = BASE_DIR / "db.sqlite3"
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": DATABASE_PATH,
     }
 }
 
@@ -160,3 +170,10 @@ LOGIN_REDIRECT_URL = "/admin/"
 # Email backend from env
 # https://django-sesame.readthedocs.io/en/stable/tutorial.html#email-the-magic-link
 EMAIL_BACKEND = env("EMAIL_BACKEND")
+if EMAIL_BACKEND == "django.core.mail.backends.smtp.EmailBackend":
+    EMAIL_HOST = env("EMAIL_HOST")
+    EMAIL_PORT = env("EMAIL_PORT")
+    EMAIL_USE_TLS = env("EMAIL_USE_TLS")
+    EMAIL_USE_SSL = env("EMAIL_USE_SSL")
+    EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+    EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
