@@ -19,7 +19,6 @@ class EmailLoginView(FormView):
         except User.DoesNotExist:
             return None
 
-
     def create_link(self, user):
         """Create a login link for this user."""
         link = reverse("login")

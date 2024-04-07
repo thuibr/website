@@ -18,13 +18,13 @@ def test_sign_up_and_first_recipe(live_server, driver):
     assert "Tom's Website" in driver.title, "title not found"
 
     # Tom also sees a Sign Up link
-    driver.find_element(By.LINK_TEXT, 'Sign Up').click()
+    driver.find_element(By.LINK_TEXT, "Sign Up").click()
 
     # Tom clicks the link and is taken to the Sign Up page
     assert "Sign Up" in driver.title, "title not found"
 
     # Tom signs up with email tom@example.com and no password
-    elem = driver.find_element(By.NAME, 'email')
+    elem = driver.find_element(By.NAME, "email")
     elem.send_keys("tom@example.com")
     elem.send_keys(Keys.RETURN)
 

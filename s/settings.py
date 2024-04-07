@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     # Local
     "recipes",
     "core",
@@ -160,5 +159,4 @@ LOGIN_REDIRECT_URL = "/admin/"
 
 # Email backend from env
 # https://django-sesame.readthedocs.io/en/stable/tutorial.html#email-the-magic-link
-EMAIL_BACKEND = env('EMAIL_BACKEND')
-
+EMAIL_BACKEND = env("EMAIL_BACKEND")
