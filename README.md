@@ -29,6 +29,7 @@ This is my personal website. It is deployed to tomhuibregtse.com.
 - [X] black
 - [X] django-sesame
 - [ ] Pico CSS
+- [ ] HTMX
 - [ ] Homepage has link to blog and link to recipes
-- [ ] "You are logged in as" on each page
+- [X] "You are logged in as" on all pages
 - [X] STATIC_ROOT
