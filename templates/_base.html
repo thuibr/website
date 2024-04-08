@@ -13,12 +13,8 @@
         </title>
     </head>
     <body>
+        {% if request.user.is_authenticated %}<p>You are logged in as {{ request.user.email }}.</p>{% endif %}
         {% block content %}
-	{% if request.user.is_authenticated %}
-	<p>
-	You are logged in as {{ request.user.email }}.
-	</p>
-	{% endif %}
         {% endblock content %}
     </body>
 </html>
