@@ -3,7 +3,6 @@
     Log In
 {% endblock title %}
 {% block content %}
-    {% if request.user.is_authenticated %}<p>You are already logged in as {{ request.user.email }}.</p>{% endif %}
     <form action="{{ request.path }}" method="post">
         {% csrf_token %}
         <p>
