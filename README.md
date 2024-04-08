@@ -33,3 +33,4 @@ This is my personal website. It is deployed to tomhuibregtse.com.
 - [ ] Homepage has link to blog and link to recipes
 - [X] "You are logged in as" on all pages
 - [X] STATIC_ROOT
+- [ ] Pytest working at each stage
