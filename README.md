@@ -28,8 +28,8 @@ This is my personal website. It is deployed to tomhuibregtse.com.
 - [X] djlint
 - [X] black
 - [X] django-sesame
-- [ ] Pico CSS
-- [ ] HTMX
+- [X] Pico CSS
+- [X] HTMX
 - [ ] Homepage has link to blog and link to recipes
 - [X] "You are logged in as" on all pages
 - [X] STATIC_ROOT

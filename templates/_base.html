@@ -6,13 +6,16 @@
               content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="website">
         <meta name="keywords" content="blog recipes">
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+        <script src="https://unpkg.com/htmx.org@1.9.11"></script>
         <title>
             {% block title %}
                 Tom's Website
             {% endblock title %}
         </title>
     </head>
-    <body>
+    <body hx-boost="true">
         {% if request.user.is_authenticated %}<p>You are logged in as {{ request.user.email }}.</p>{% endif %}
         {% block content %}
         {% endblock content %}
