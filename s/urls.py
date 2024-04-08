@@ -28,5 +28,6 @@ def hello(request):
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("login/", include("core.urls")),
+    path("recipes/", include("recipes.urls")),
     path("", hello, name="hello"),
 ]
