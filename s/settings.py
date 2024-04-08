@@ -26,6 +26,7 @@ env = environ.Env(
     EMAIL_USE_TLS=(bool, False),
     EMAIL_USE_SSL=(bool, False),
     STATIC_ROOT=(str, BASE_DIR / "staticfiles"),
+    DATABASE_PATH=(str, BASE_DIR / "db.sqlite3"),
 )
 
 
@@ -100,8 +101,6 @@ WSGI_APPLICATION = "s.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASE_PATH = env("DATABASE_PATH")
-if not DATABASE_PATH:
-    DATABASE_PATH = BASE_DIR / "db.sqlite3"
 
 DATABASES = {
     "default": {

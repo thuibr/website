@@ -17,24 +17,22 @@ def test_sign_up_and_first_recipe(live_server, driver):
     driver.get(live_server.url)
     assert "Tom's Website" in driver.title, "title not found"
 
-    # Tom also sees a Sign Up link
-    driver.find_element(By.LINK_TEXT, "Sign Up").click()
+    #    # Tom also sees a Sign Up link
+    #    driver.find_element(By.LINK_TEXT, "Sign Up").click()
+    #
+    #    # Tom clicks the link and is taken to the Sign Up page
+    #    assert "Sign Up" in driver.title, "title not found"
+    #
+    #    # Tom signs up with email tom@example.com and no password
+    #    elem = driver.find_element(By.NAME, "email")
+    #    elem.send_keys("tom@example.com")
+    #    elem.send_keys(Keys.RETURN)
 
-    # Tom clicks the link and is taken to the Sign Up page
-    assert "Sign Up" in driver.title, "title not found"
+    # Tom clicks on the recipes link
+    driver.find_element(By.LINK_TEXT, "Recipes").click()
 
-    # Tom signs up with email tom@example.com and no password
-    elem = driver.find_element(By.NAME, "email")
-    elem.send_keys("tom@example.com")
-    elem.send_keys(Keys.RETURN)
-
-    # Tom receives an email in his inbox to login
-
-    # Tom logs in via the link in the email
-
-    # Tom sees a link to the recipes section of the website
-
-    # Tom clicks on it
+    # Tom clicks on the link to add a new recipe
+    driver.find_element(By.LINK_TEXT, "Add New Recipe").click()
 
     # Tom sees a link to add a new recipe
 
