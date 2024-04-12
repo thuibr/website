@@ -7,3 +7,4 @@ pytest-django
 djlint
 black
 django-sesame
+flake8

@@ -11,6 +11,7 @@ def driver():
     driver.close()
 
 
+@pytest.mark.django_db
 def test_sign_up_and_first_recipe(live_server, driver):
 
     # Tom navigates to the homepage and see's "Tom's Website" as the title
@@ -34,10 +35,17 @@ def test_sign_up_and_first_recipe(live_server, driver):
     # Tom clicks on the link to add a new recipe
     driver.find_element(By.LINK_TEXT, "Add New Recipe").click()
 
-    # Tom sees a link to add a new recipe
-
     # Tom adds a recipe URL
+    elem = driver.find_element(By.NAME, "url")
+    url = "https://example.com/recipe"
+    elem.send_keys(url)
+    elem.send_keys(Keys.RETURN)
 
-    # Tom then sees the recipe's title in a list on the recipes website
+    # Top is redirected to the page for the recipe
+    import time
 
-    pytest.fail("Finish the test!")
+    time.sleep(2)
+    assert driver.current_url.endswith("/recipes/1/")
+
+    # Tom then sees the recipe's url
+    driver.find_element(By.LINK_TEXT, "Link")
