@@ -24,10 +24,9 @@ This is my personal website. It is deployed to tomhuibregtse.com.
 - [X] django-sesame
 - [X] Pico CSS
 - [X] HTMX
-- [ ] Homepage has link to blog and link to recipes
 - [X] "You are logged in as" on all pages
 - [X] STATIC_ROOT
-- [ ] Pytest working at each stage
+- [ ] Homepage has link to blog and link to recipes
 - [ ] List of recipes
 - [ ] Edit recipe
 - [ ] Delete recipe

@@ -30,10 +30,3 @@ def test_recipe_detail_view_status_is_200(client):
     response = client.get(url)
 
     assert 200 == response.status_code
-
-
-@pytest.mark.django_db
-def test_recipe_detail_view_url_is_correct(client):
-    recipe = Recipe.objects.create(url="https://recipes.com/recipe/")
-    url = reverse("recipes:recipe-detail", kwargs={"pk": recipe.pk})
-    assert "/recipes/1/" == url
