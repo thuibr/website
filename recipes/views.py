@@ -12,7 +12,7 @@ class RecipeListView(ListView):
 
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = Recipe
-    fields = ("id", "url", "title")
+    fields = ("id", "url", "title", "notes")
 
 
 class RecipeDetailView(DetailView):

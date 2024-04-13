@@ -12,16 +12,38 @@ def test_recipe_create_uses_correct_template(admin_client):
 
 
 @pytest.mark.django_db
-def test_recipe_create_saves_the_url(admin_client):
+def test_recipe_create_redirects(admin_client):
     url = reverse("recipes:recipe-create")
 
     response = admin_client.post(
-        url, data={"url": "https://recipes.com/recipe/", "title": "title"}
+        url,
+        data={
+            "url": "https://recipes.com/recipe/",
+            "title": "title",
+            "notes": "some notes about the recipe",
+        },
     )
 
     assert 302 == response.status_code
 
-    assert Recipe.objects.get().url == "https://recipes.com/recipe/"
+
+@pytest.mark.django_db
+def test_recipe_create_correctly_saves_the_fields(admin_client):
+    url = reverse("recipes:recipe-create")
+
+    admin_client.post(
+        url,
+        data={
+            "url": "https://recipes.com/recipe/",
+            "title": "title",
+            "notes": "some notes about the recipe",
+        },
+    )
+
+    recipe = Recipe.objects.get()
+    assert "https://recipes.com/recipe/" == recipe.url
+    assert "title" == recipe.title
+    assert "some notes about the recipe" == recipe.notes
 
 
 @pytest.mark.django_db
