@@ -36,3 +36,4 @@ This is my personal website. It is deployed to tomhuibregtse.com.
 - [ ] url is unique
 - [ ] url does not contain tracking info
 - [ ] authorization for adding/editing/removing a recipe
+- [ ] local copy of water or my own css

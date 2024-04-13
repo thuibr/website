@@ -100,3 +100,23 @@ def test_sign_up_and_first_recipe(live_server, driver):
     # Tom can navigate back to the details page to see the notes
     elem.click()
     assert driver.find_element(By.NAME, "notes").text == notes
+
+    # Tom can edit the page
+    driver.find_element(By.LINK_TEXT, "Edit").click()
+
+    # Tom changes the title
+    title = "my modified recipe"
+    elem = driver.find_element(By.NAME, "title")
+    elem.send_keys(title)
+
+    # Tom changes notes
+    notes = "some other notes about this recipe"
+    elem = driver.find_element(By.NAME, "notes")
+    elem.send_keys(notes)
+
+    # Tom changes the url
+    url = "https://example.com/recipe_modified"
+    elem = driver.find_element(By.NAME, "url")
+    elem.send_keys(url)
+
+    driver.find_element(By.NAME, "submit").click()
