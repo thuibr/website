@@ -3,8 +3,9 @@
     {{ object.title }}
 {% endblock title %}
 {% block content %}
-    <a href="{% url 'recipes:recipe-list' %}">Recipes</a>
+    <a href="{% url 'recipes:recipe-list' %}">Back to Recipes</a>
     <h1 name="title">{{ object.title }}</h1>
+    <h3>Notes</h3>
     <p name="notes">{{ object.notes }}</p>
     <a href="{{ object.url }}">Link</a>
     <a href="{{ object.get_update_url }}">Edit</a>
