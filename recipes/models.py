@@ -17,3 +17,6 @@ class Recipe(models.Model):
 
     def get_update_url(self):
         return reverse("recipes:recipe-update", kwargs={"pk": self.pk})
+
+    def get_delete_url(self):
+        return reverse("recipes:recipe-delete", kwargs={"pk": self.pk})

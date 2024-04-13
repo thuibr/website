@@ -22,3 +22,13 @@ def test_recipe_get_update_url_maps_to_recipe_update():
     url = recipe.get_update_url()
 
     assert expected_url == url
+
+
+@pytest.mark.django_db
+def test_recipe_get_delete_url_maps_to_recipe_delete():
+    recipe = Recipe.objects.create(url="https://recipes.com/recipe/")
+    expected_url = reverse("recipes:recipe-delete", kwargs={"pk": recipe.pk})
+
+    url = recipe.get_delete_url()
+
+    assert expected_url == url

@@ -99,3 +99,19 @@ def test_recipe_update_correctly_saves_the_fields(admin_client):
     assert "https://recipes.com/recipe-modified/" == recipe.url
     assert "modified title" == recipe.title
     assert "some modified notes about the recipe" == recipe.notes
+
+
+@pytest.mark.django_db
+def test_recipe_delete_redirects(admin_client):
+    recipe = Recipe.objects.create(
+        url="https://recipes.com/recipe/",
+        title="title",
+        notes="some notes about the recipe",
+    )
+    url = reverse("recipes:recipe-delete", kwargs={"pk": recipe.pk})
+
+    response = admin_client.post(
+        url,
+    )
+
+    assert 302 == response.status_code
