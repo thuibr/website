@@ -15,7 +15,9 @@ def test_recipe_create_uses_correct_template(admin_client):
 def test_recipe_create_saves_the_url(admin_client):
     url = reverse("recipes:recipe-create")
 
-    response = admin_client.post(url, data={"url": "https://recipes.com/recipe/"})
+    response = admin_client.post(
+        url, data={"url": "https://recipes.com/recipe/", "title": "title"}
+    )
 
     assert 302 == response.status_code
 
