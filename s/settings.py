@@ -171,6 +171,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 SESAME_MAX_AGE = 300
 
+LOGIN_URL = "/login/"
 LOGIN_REDIRECT_URL = "/admin/"
 
 # Email backend from env

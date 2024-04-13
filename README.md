@@ -34,3 +34,4 @@ This is my personal website. It is deployed to tomhuibregtse.com.
 - [ ] Modify notes for recipe
 - [ ] url is unique
 - [ ] url does not contain tracking info
+- [ ] authorization for adding/editing/removing a recipe
