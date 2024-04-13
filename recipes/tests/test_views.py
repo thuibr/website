@@ -5,17 +5,17 @@ from pytest_django.asserts import assertTemplateUsed
 from recipes.models import Recipe
 
 
-def test_recipe_create_uses_correct_template(client):
+def test_recipe_create_uses_correct_template(admin_client):
     url = reverse("recipes:recipe-create")
-    response = client.get(url)
+    response = admin_client.get(url)
     assertTemplateUsed(response, "recipes/recipe_form.html")
 
 
 @pytest.mark.django_db
-def test_recipe_create_saves_the_url(client):
+def test_recipe_create_saves_the_url(admin_client):
     url = reverse("recipes:recipe-create")
 
-    response = client.post(url, data={"url": "https://recipes.com/recipe/"})
+    response = admin_client.post(url, data={"url": "https://recipes.com/recipe/"})
 
     assert 302 == response.status_code
 

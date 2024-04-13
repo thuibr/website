@@ -26,7 +26,8 @@ This is my personal website. It is deployed to tomhuibregtse.com.
 - [X] HTMX
 - [X] "You are logged in as" on all pages
 - [X] STATIC_ROOT
-- [ ] Homepage has link to blog and link to recipes
+- [X] homepage has link to recipes
+- [ ] homepage has link to blog
 - [ ] List of recipes
 - [ ] Edit recipe
 - [ ] Delete recipe
