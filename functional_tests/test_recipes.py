@@ -1,5 +1,4 @@
 import re
-import time
 
 import pytest
 from django.core import mail
@@ -15,8 +14,10 @@ User = get_user_model()
 
 def wait_for_element(driver, element_id, wait_time=2):
     """Wait for an element with given id to show up on the page."""
-    element = WebDriverWait(driver, wait_time).until(
-        EC.visibility_of_element_located((By.XPATH, f"//*[@id='{element_id}']"))
+    WebDriverWait(driver, wait_time).until(
+        EC.visibility_of_element_located(
+            (By.XPATH, f"//*[@id='{element_id}']")
+        )
     )
 
 

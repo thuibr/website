@@ -16,7 +16,6 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import path, include
 
