@@ -87,3 +87,16 @@ def test_sign_up_and_first_recipe(live_server, driver):
 
     # Tom also sees the recipe's title
     assert driver.find_element(By.NAME, "title").text == title
+
+    # Tom also sees the recipe's notes
+    assert driver.find_element(By.NAME, "notes").text == notes
+
+    # Tom can navigate back to the Recipes list page
+    driver.find_element(By.LINK_TEXT, "Recipes").click()
+
+    # Tom sees the recipe listed
+    elem = driver.find_element(By.LINK_TEXT, title)
+
+    # Tom can navigate back to the details page to see the notes
+    elem.click()
+    assert driver.find_element(By.NAME, "notes").text == notes

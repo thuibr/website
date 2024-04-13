@@ -1,6 +1,7 @@
 {% extends "_base.html" %}
-
 {% block content %}
-<h1 name="title">{{ object.title }}</h1>
-<a href="{{ object.url }}">Link</a>
+    <a href="{% url 'recipes:recipe-list' %}">Recipes</a>
+    <h1 name="title">{{ object.title }}</h1>
+    <p name="notes">{{ object.notes }}</p>
+    <a href="{{ object.url }}">Link</a>
 {% endblock content %}
