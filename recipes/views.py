@@ -20,6 +20,7 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
 class RecipeUpdateView(LoginRequiredMixin, UpdateView):
     model = Recipe
     fields = ("id", "url", "title", "notes")
+    success_url = reverse_lazy("recipes:recipe-list")
 
 
 class RecipeDetailView(DetailView):

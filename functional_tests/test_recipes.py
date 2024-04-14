@@ -88,6 +88,7 @@ def test_sign_up_and_first_recipe(live_server, driver):
     assert url == elem.get_attribute("href")
 
     # Tom also sees the recipe's notes
+    driver.find_element(By.CSS_SELECTOR, "summary").click()
     assert driver.find_element(By.NAME, "notes").text == notes
 
     # Tom can edit the the recipe
@@ -114,12 +115,12 @@ def test_sign_up_and_first_recipe(live_server, driver):
     driver.find_element(By.NAME, "submit").click()
 
     # Tom sees the updates
-    elem = driver.find_element(By.LINK_TEXT, "Link")
+    elem = driver.find_element(By.LINK_TEXT, title)
+    assert title == elem.text
     assert url == elem.get_attribute("href")
+    driver.find_element(By.CSS_SELECTOR, "summary").click()
     elem = driver.find_element(By.NAME, "notes")
     assert notes == elem.text
-    elem = driver.find_element(By.NAME, "title")
-    assert title == elem.text
 
     # Tom can delete the recipe
     driver.find_element(By.LINK_TEXT, "Delete").click()
