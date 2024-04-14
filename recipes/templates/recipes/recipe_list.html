@@ -8,8 +8,12 @@
                 <a href="{{ recipe.get_update_url }}">Edit</a>
                 <a href="{{ recipe.get_delete_url }}">Delete</a>
                 {% if recipe.notes %}
-                    <h3>Notes</h3>
+		<details>
+		<summary>
+                    Notes
+		</summary>
                     <p name="notes">{{ recipe.notes }}</p>
+		</details
                 {% endif %}
             </li>
         {% empty %}
