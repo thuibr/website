@@ -76,31 +76,21 @@ def test_sign_up_and_first_recipe(live_server, driver):
 
     driver.find_element(By.NAME, "submit").click()
 
-    # Top is redirected to the page for the recipe
+    # Top is redirected to the recipes page
     # TODO use the wait_for
     time.sleep(2)
-    assert driver.current_url.endswith("/recipes/1/")
+    assert driver.current_url.endswith("/recipes/")
 
-    # Tom then sees the recipe's url
-    driver.find_element(By.LINK_TEXT, "Link")
+    # Tom then sees the recipe listed
+    elem = driver.find_element(By.LINK_TEXT, title)
 
-    # Tom also sees the recipe's title
-    assert driver.find_element(By.NAME, "title").text == title
+    # The link points to the recipe's url
+    assert url == elem.get_attribute("href")
 
     # Tom also sees the recipe's notes
     assert driver.find_element(By.NAME, "notes").text == notes
 
-    # Tom can navigate back to the Recipes list page
-    driver.find_element(By.LINK_TEXT, "Back to Recipes").click()
-
-    # Tom sees the recipe listed
-    elem = driver.find_element(By.LINK_TEXT, title)
-
-    # Tom can navigate back to the details page to see the notes
-    elem.click()
-    assert driver.find_element(By.NAME, "notes").text == notes
-
-    # Tom can edit the page
+    # Tom can edit the the recipe
     driver.find_element(By.LINK_TEXT, "Edit").click()
 
     # Tom changes the title
