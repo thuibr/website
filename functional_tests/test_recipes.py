@@ -38,7 +38,6 @@ def test_sign_up_and_first_recipe(live_server, driver):
 
     # Tom clicks on the recipes link
     driver.find_element(By.LINK_TEXT, "Recipes").click()
-    recipes_url = driver.current_url
 
     # Tom clicks on the link to add a new recipe
     driver.find_element(By.LINK_TEXT, "Add New Recipe").click()
@@ -57,7 +56,7 @@ def test_sign_up_and_first_recipe(live_server, driver):
     driver.get(link)
 
     # Tom goes back to the page to add a new recipe
-    driver.get(recipes_url)
+    driver.find_element(By.LINK_TEXT, "Recipes").click()
     driver.find_element(By.LINK_TEXT, "Add New Recipe").click()
 
     # Tom adds a recipe URL
@@ -92,7 +91,7 @@ def test_sign_up_and_first_recipe(live_server, driver):
     assert driver.find_element(By.NAME, "notes").text == notes
 
     # Tom can navigate back to the Recipes list page
-    driver.find_element(By.LINK_TEXT, "Recipes").click()
+    driver.find_element(By.LINK_TEXT, "Back to Recipes").click()
 
     # Tom sees the recipe listed
     elem = driver.find_element(By.LINK_TEXT, title)

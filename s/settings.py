@@ -172,7 +172,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 SESAME_MAX_AGE = 300
 
 LOGIN_URL = "/login/"
-LOGIN_REDIRECT_URL = "/admin/"
+LOGIN_REDIRECT_URL = "/home/"
 
 # Email backend from env
 # https://django-sesame.readthedocs.io/en/stable/tutorial.html#email-the-magic-link
