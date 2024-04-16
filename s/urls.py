@@ -17,17 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.shortcuts import render
-from django.urls import path, include
-
-
-def hello(request):
-    return render(request, "index.html")
-
+from django.urls import path, include, reverse_lazy
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("login/", include("core.urls")),
     path("recipes/", include("recipes.urls")),
-    path("home/", hello, name="home"),
-    path("", hello, name="hello"),
+    path("", RedirectView.as_view(url=reverse_lazy("recipes:recipe-list"), permanent=False), name="index"),
 ]
