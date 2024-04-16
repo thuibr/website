@@ -1,24 +1,21 @@
 {% extends "_base.html" %}
 {% block content %}
     <h1>Recipes</h1>
-    <ul>
-        {% for recipe in object_list %}
-            <li>
-                <a href="{{ recipe.url }}">{{ recipe }}</a>
-                <a href="{{ recipe.get_update_url }}">Edit</a>
-                <a href="{{ recipe.get_delete_url }}">Delete</a>
-                {% if recipe.notes %}
-                    <details>
-                        <summary>Notes</summary>
-                        <p name="notes">{{ recipe.notes }}</p>
-                    </details>
-                {% endif %}
-            </li>
-        {% empty %}
-            <li>No recipes yet.</li>
-        {% endfor %}
-        <li>
-            <a href="{% url 'recipes:recipe-create' %}">Add New Recipe</a>
-        </li>
-    </ul>
+    {% for recipe in object_list %}
+        <article>
+            <a href="{{ recipe.url }}">{{ recipe }}</a>
+            {% if recipe.notes %}<p>{{ recipe.notes }}</p>{% endif %}
+            <div role="group">
+                <button>
+                    <a href="{{ recipe.get_update_url }}" class="secondary">Edit</a>
+                </button>
+                <button>
+                    <a href="{{ recipe.get_delete_url }}" class="contrast">Delete</a>
+                </button>
+            </div>
+        </article>
+    {% empty %}
+        <p>No recipes yet.</p>
+    {% endfor %}
+    <a href="{% url 'recipes:recipe-create' %}">Add New Recipe</a>
 {% endblock content %}
