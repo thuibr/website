@@ -4,7 +4,7 @@
     {% for recipe in object_list %}
         <article>
             <a href="{{ recipe.url }}">{{ recipe }}</a>
-            {% if recipe.notes %}<p name="notes">{{ recipe.notes }}</p>{% endif %}
+            {% if recipe.notes %}<p name="notes">{{ recipe.notes|linebreaks }}</p>{% endif %}
         </article>
     {% empty %}
         <p>No recipes yet.</p>
