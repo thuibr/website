@@ -1,13 +1,18 @@
 {% extends "_base.html" %}
 {% block content %}
-{% if not user.is_authenticated %}
-    <a href="{% url 'email_login' %}">Login</a>
-{% endif %}
+    {% if not user.is_authenticated %}
+        <a href="{% url 'email_login' %}">Login</a>
+    {% endif %}
     <h1>Recipes</h1>
     {% for recipe in object_list %}
         <article>
             <a href="{{ recipe.url }}">{{ recipe }}</a>
-            {% if recipe.notes %}<p name="notes">{{ recipe.notes|linebreaks }}</p>{% endif %}
+            {% if recipe.notes %}
+                <details>
+                    <summary>Notes</summary>
+                    <p>{{ recipe.notes|linebreaks }}</p>
+                </details>
+            {% endif %}
         </article>
     {% empty %}
         <p>No recipes yet.</p>
