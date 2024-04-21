@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Local
     "recipes",
+    "links",
     "core",
 ]
 
