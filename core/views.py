@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import FormView
+from django.views.generic.base import TemplateView
 from sesame.utils import get_query_string
 
 from .forms import EmailLoginForm
@@ -54,3 +55,7 @@ Thank you for using django-sesame!
     def form_valid(self, form):
         self.email_submitted(form.cleaned_data["email"])
         return render(self.request, "email_login_success.html")
+
+
+class HomePageView(TemplateView):
+    template_name = "home.html"

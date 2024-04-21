@@ -1,17 +1,17 @@
 {% extends "_base.html" %}
 {% block content %}
-    <h1>Recipes</h1>
-    {% for recipe in object_list %}
+    <h1>Links</h1>
+    {% for link in object_list %}
         <article>
-            <a href="{{ recipe.url }}">{{ recipe }}</a>
-            {% if recipe.notes %}
+            <a href="{{ link.url }}">{{ link }}</a>
+            {% if link.notes %}
                 <details>
                     <summary>Notes</summary>
-                    <p>{{ recipe.notes|linebreaks }}</p>
+                    <p>{{ link.notes|linebreaks }}</p>
                 </details>
             {% endif %}
         </article>
     {% empty %}
-        <p>No recipes yet.</p>
+        <p>No links yet.</p>
     {% endfor %}
 {% endblock content %}

@@ -16,16 +16,14 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include, reverse_lazy
-from django.views.generic.base import RedirectView
+from django.urls import path, include
+
+from core.views import HomePageView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("login/", include("core.urls")),
     path("recipes/", include("recipes.urls")),
-    path(
-        "",
-        RedirectView.as_view(url=reverse_lazy("recipes:recipe-list"), permanent=False),
-        name="index",
-    ),
+    path("links/", include("links.urls")),
+    path("", HomePageView.as_view(), name="home"),
 ]
