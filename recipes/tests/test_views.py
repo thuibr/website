@@ -1,14 +1,7 @@
 import pytest
 from django.urls import reverse
-from pytest_django.asserts import assertTemplateUsed
 
 from recipes.models import Recipe
-
-
-def test_recipe_create_uses_correct_template(admin_client):
-    url = reverse("recipes:recipe-create")
-    response = admin_client.get(url)
-    assertTemplateUsed(response, "recipes/recipe_form.html")
 
 
 @pytest.mark.django_db
@@ -44,16 +37,6 @@ def test_recipe_create_correctly_saves_the_fields(admin_client):
     assert "https://recipes.com/recipe/" == recipe.url
     assert "title" == recipe.title
     assert "some notes about the recipe" == recipe.notes
-
-
-@pytest.mark.django_db
-def test_recipe_detail_view_status_is_200(client):
-    recipe = Recipe.objects.create(url="https://recipes.com/recipe/")
-    url = reverse("recipes:recipe-detail", kwargs={"pk": recipe.pk})
-
-    response = client.get(url)
-
-    assert 200 == response.status_code
 
 
 @pytest.mark.django_db

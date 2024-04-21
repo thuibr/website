@@ -16,7 +16,6 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.shortcuts import render
 from django.urls import path, include, reverse_lazy
 from django.views.generic.base import RedirectView
 
@@ -24,5 +23,9 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("login/", include("core.urls")),
     path("recipes/", include("recipes.urls")),
-    path("", RedirectView.as_view(url=reverse_lazy("recipes:recipe-list"), permanent=False), name="index"),
+    path(
+        "",
+        RedirectView.as_view(url=reverse_lazy("recipes:recipe-list"), permanent=False),
+        name="index",
+    ),
 ]
